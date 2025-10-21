@@ -1,0 +1,143 @@
+# Production-grade requirements.txt with versions for stability
+# Core dependencies with production-tested versions
+torch==2.7.0
+transformers==4.49.0  # Well-tested version, compatible with sentence-transformers
+langchain==0.1.20
+langchain-community==0.0.38
+langchain-chroma==0.1.4
+langchain-huggingface==0.0.3  # Proven stable version from testing
+sentence-transformers==3.1.1  # Latest stable, well-tested with transformers 4.49.0
+requests==2.32.3
+
+# NLP libraries
+nltk==3.9.1
+spacy==3.7.2  # Modern NLP library for enhanced semantic processing
+langdetect==1.0.9  # Language detection for multilingual support
+
+# spaCy Installation Instructions:
+# ===============================
+# After installing requirements, run these commands to install spaCy language models:
+# 
+# 1. Install English model (required for semantic processing):
+#    python -m spacy download en_core_web_sm
+#
+# 2. Verify installation:
+#    python -c "import spacy; nlp = spacy.load('en_core_web_sm'); print('spaCy model loaded successfully')"
+#
+# 3. If you encounter permission issues, try:
+#    python -m pip install --user https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+#
+# Note: The spaCy model (~50MB) will be downloaded to your Python environment and
+# should be added to .gitignore to avoid committing large binary files.
+
+# Vector store - production stable
+chromadb==0.4.24
+
+# Fast Hugging Face transfers
+hf_xet==1.1.2
+
+# Document processing - PDF (pinned for stability)
+pypdf==5.5.0
+pdfplumber==0.11.6
+
+# Advanced PDF processing with OCR support
+PyMuPDF==1.24.14  # Best-in-class PDF processing (fitz)
+pymupdf4llm==0.0.17  # LLM-optimized markdown extraction
+pytesseract==0.3.13  # Tesseract OCR wrapper
+Pillow==11.0.0  # Image processing for OCR
+
+# Document processing - Word (stable versions)
+docx2txt==0.9
+python-docx==1.1.2
+
+# Document processing - PowerPoint
+python-pptx==1.0.2
+
+# Document processing - EPUB
+ebooklib==0.19
+beautifulsoup4==4.13.4
+lxml==5.4.0
+html2text==2025.4.15
+
+# Utilities - pinned for production stability
+tqdm==4.67.1
+python-dotenv==1.1.0
+chardet==5.2.0
+numpy==1.26.4
+psutil==7.0.0
+aiofiles==24.1.0  # For async file operations
+aiohttp==3.11.7  # For async HTTP requests
+pydantic==2.10.2  # For data validation and type safety
+typing-extensions==4.12.2  # Enhanced typing support
+
+# Hugging Face ecosystem - production-tested versions
+huggingface-hub==0.31.4
+safetensors==0.5.3
+tokenizers==0.21.1
+
+# Production monitoring and logging
+sentry-sdk>=1.40.0  # For error tracking
+prometheus-client>=0.19.0  # For metrics
+
+# Optional enhanced document processing
+# Use specific versions to avoid surprises
+unstructured==0.17.2
+unstructured[epub]==0.17.2
+
+# Development dependencies (remove in production)
+pytest>=7.4.0  # Only for testing environments
+pytest-cov>=4.1.0  # Only for testing environments
+pytest-asyncio>=0.21.0  # For testing async functionality
+
+# Installation Instructions:
+# =========================
+# 
+# 1. Create and activate virtual environment (recommended):
+#    python -m venv venv
+#    source venv/bin/activate  # Linux/Mac
+#    # or: venv\Scripts\activate  # Windows
+#
+# 2. Install all requirements:
+#    pip install -r requirements.txt
+#
+# 3. Install Tesseract OCR engine (REQUIRED for OCR functionality):
+#    macOS:     brew install tesseract
+#    Ubuntu:    sudo apt-get install tesseract-ocr
+#    Windows:   Download from https://github.com/UB-Mannheim/tesseract/wiki
+#
+# 4. Install spaCy language model (REQUIRED):
+#    python -m spacy download en_core_web_md
+#
+# 5. Verify installation:
+#    python -c "import spacy; nlp = spacy.load('en_core_web_md'); print('✓ spaCy setup complete')"
+#    python -c "import pytesseract; print(pytesseract.get_tesseract_version()); print('✓ Tesseract OCR ready')"
+#
+# 6. Install Ollama for LLM functionality:
+#    Visit https://ollama.ai for installation instructions
+#    ollama pull qwen2.5:3b-instruct  # Local development
+#    ollama pull qwen2.5:7b-instruct  # Production
+#
+# Troubleshooting:
+# ===============
+# 
+# If spaCy model download fails:
+# - Check internet connection
+# - Try direct download: pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+# - Ensure sufficient disk space (~50MB for model)
+#
+# If you get dependency conflicts:
+# - Use a fresh virtual environment
+# - Update pip: python -m pip install --upgrade pip
+# - Install in order: pip install torch transformers sentence-transformers
+#
+# For Python 3.13 compatibility issues:
+# - Downgrade to Python 3.11 or 3.12 if encountering build errors
+# - Use conda for better dependency management: conda create -n ragi python=3.12
+
+# Configuration management
+pyyaml==6.0.2
+
+# Flask web framework (required for API endpoints)
+flask==3.1.0
+flask-cors==6.0.1
+ollama==0.4.1  # Ollama Python client

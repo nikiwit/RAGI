@@ -1,0 +1,143 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+*.local
+
+# Data and Models (exclude actual data, keep structure)
+data/
+!data/README.md
+!data/.gitkeep
+
+# Generated/Runtime directories
+vector_store/
+sessions/
+model_cache/
+logs/
+*.log
+*.log.*
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing (ignore test outputs, but keep pytest.ini, .coveragerc, and tests/ folder)
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+# Note: pytest.ini, .coveragerc, and tests/ directory are tracked in git
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# spaCy models (large files)
+en_core_web_*/
+
+# OCR temporary files and cache
+ocr_cache/
+*.tessdata
+tessdata/
+ocr_temp/
+*.ocr.txt
+
+# Backup files
+*.bak
+*.backup
+*.tmp
+*~.nib
+embeddings_backup.pkl
+
+# Documentation builds
+docs/_build/
+docs/.doctrees/
+
+# Distribution / packaging
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Security
+*.pem
+*.key
+secrets.yaml
+
+# Development/Internal Documentation (not for distribution)
+CLAUDE.md
+*.draft.md
+*.notes.md
+NOTES.md
+TODO.md
+CHANGELOG.draft.md
+
+# Test/Development scripts (exclude ad-hoc test scripts, keep tests/ folder)
+run_tests.sh
+
+# tests/ folder is tracked, only ignoring root-level test scripts
+/test_*.py
+/*.test.py

@@ -1,0 +1,41 @@
+# Generic topic configuration for RAGI
+topics:
+  general:
+    keywords: [information, question, help, about, tell, explain, what, how, when, where, who, why]
+    entities: [ORG, PERSON, GPE]
+    confidence_threshold: 0.6
+
+  support:
+    keywords: [support, help, assistance, issue, problem, error, trouble, fix, resolve, troubleshoot]
+    entities: [PRODUCT, ORG]
+    confidence_threshold: 0.65
+
+  technical:
+    keywords: [technical, system, software, hardware, setup, install, configure, access, login, password, account]
+    entities: [PRODUCT, ORG]
+    confidence_threshold: 0.7
+
+  documentation:
+    keywords: [guide, documentation, manual, instructions, procedure, steps, how-to, tutorial, reference]
+    entities: [PRODUCT, ORG]
+    confidence_threshold: 0.65
+
+  account:
+    keywords: [account, profile, settings, preferences, update, change, reset, credentials, username]
+    entities: [PERSON, ORG]
+    confidence_threshold: 0.7
+
+# Generic English whitelist
+english_whitelist:
+  function_words: [the, and, for, are, but, not, you, all, can, had, her, was, one, our, out, is, it, in, on, at, to, of, with, from, by]
+  question_words: [what, where, when, why, how, who, which, whose, whom]
+  discourse_markers: [please, thanks, thank, hello, hi, help, support, sorry, yes, no, okay, ok]
+
+# Generic semantic patterns
+semantic_patterns:
+  english_indicators:
+    - '\b\w+(ing|tion|ness|ment|able|ible)\b'
+    - '\b(the|and|for|are|but|not|you|all|can|had)\b'
+  question_patterns:
+    - '\b(what|where|when|why|how|who|which)\b'
+    - '\b(can|could|do|does|did|will|would)\b\s+\w+'
