@@ -8,20 +8,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-[Features](#-features) •
-[Quick Start](#-quick-start) •
-[Installation](#-installation) •
-[Usage](#-usage) •
-[Architecture](#-architecture) •
-[Contributing](#-contributing)
+[Features](#features) •
+[Quick Start](#quick-start) •
+[Installation](#installation) •
+[Usage](#usage) •
+[Architecture](#architecture)
 
 </div>
 
 ---
 
-## 🎯 What is RAGI?
+## What is RAGI?
 
-RAGI (Retrieval-Augmented Generation Interface) is a streamlined, general-purpose RAG system that helps you interact with your document collection using natural language. It combines semantic search with large language models to provide accurate, context-aware answers.
+RAGI (Retrieval-Augmented Generation Intelligence) is a streamlined, general-purpose RAG system that helps you interact with your document collection using natural language. It combines semantic search with large language models to provide accurate, context-aware answers.
 
 **Perfect for:**
 - Personal knowledge bases
@@ -30,17 +29,17 @@ RAGI (Retrieval-Augmented Generation Interface) is a streamlined, general-purpos
 - Corporate document repositories
 - Educational content libraries
 
-## ✨ Features
+## Features
 
 ### Core Capabilities
-- 🔍 **Hybrid Search** - Combines semantic and keyword search for better results
-- 📚 **Multi-Format Support** - PDF, DOCX, TXT, MD, PPTX, EPUB
-- 🖼️ **OCR Support** - Extract text from scanned PDFs and images
-- 🤖 **Local-First** - Runs entirely on your machine with Ollama
-- ⚡ **Fast Retrieval** - ChromaDB vector store with optimized indexing
-- 💬 **Session Management** - Multiple conversation sessions with memory
-- 🎯 **Context-Aware** - Remembers conversation history
-- 📁 **Folder Organization** - Organize documents in folders and filter searches by project/folder
+- **Hybrid Search** - Combines semantic and keyword search for better results
+- **Multi-Format Support** - PDF, DOCX, TXT, MD, PPTX, EPUB
+- **OCR Support** - Extract text from scanned PDFs and images
+- **Local-First** - Runs entirely on your machine with Ollama
+- **Fast Retrieval** - ChromaDB vector store with optimized indexing
+- **Session Management** - Multiple conversation sessions with memory
+- **Context-Aware** - Remembers conversation history
+- **Folder Organization** - Organize documents in folders and filter searches by project/folder
 
 ### Technical Features
 - **Semantic Search** - BGE embeddings for understanding context
@@ -52,11 +51,11 @@ RAGI (Retrieval-Augmented Generation Interface) is a streamlined, general-purpos
 - **Flexible Configuration** - Environment-based settings
 - **REST API** - Flask API for integration
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/RAGI.git
+git clone https://github.com/nikiwit/RAGI.git
 cd RAGI
 
 # 2. Create virtual environment
@@ -65,7 +64,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
-python -m spacy download en_core_web_md
+python -m spacy download en_core_web_lg
 
 # 4. Install Tesseract OCR (for scanned PDF support)
 brew install tesseract  # macOS
@@ -90,7 +89,7 @@ python main.py
 
 That's it! RAGI will automatically index your documents and start the interactive CLI.
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.10-3.12 (3.12 recommended for best compatibility)
@@ -153,22 +152,7 @@ That's it! RAGI will automatically index your documents and start the interactiv
    # Edit .env with your preferences
    ```
 
-## 💻 Usage
-
-### Web Interface (Recommended)
-
-```bash
-python gui.py
-```
-
-The modern web interface provides:
-- 🎨 Beautiful dark theme UI
-- 💬 Real-time streaming responses
-- 📂 Session management
-- 📊 Live document statistics
-- ⚡ One-click reindexing
-
-Access at `http://localhost:7860` after starting.
+## Usage 
 
 ### Command Line Interface
 
@@ -209,54 +193,27 @@ The API will be available at `http://localhost:5000`
 - `GET /stats` - Get system statistics
 - `POST /reindex` - Trigger document reindexing
 
-### Example Queries
-
-```
-> What are the main topics covered in these documents?
-> Explain the concept of neural networks
-> How do I configure the embedding model?
-> Summarize the installation process
-```
-
-### Folder Organization
-
-RAGI supports organizing documents in folders for better organization and faster searches:
-
-```bash
-# Example folder structure
-data/
-├── project-alpha/
-│   ├── technical-docs/
-│   │   ├── architecture.pdf
-│   │   └── api-reference.md
-│   └── user-guides/
-│       └── getting-started.md
-├── project-beta/
-│   └── reports/
-│       └── quarterly-report.docx
-└── README.md
-
 # Using folder commands
 > list folders
-📁 Folder Structure:
+Folder Structure:
   • project-alpha: 15 documents
   • project-beta: 8 documents
 
 > filter folder technical-docs
-✅ Folder filter applied: 'technical-docs' (10 documents)
+Folder filter applied: 'technical-docs' (10 documents)
 
 > What is the system architecture?
 [Searches only in technical-docs folder - 10x faster!]
 
 > clear filter
-✅ Folder filter cleared
+Folder filter cleared
 ```
 
 **Benefits:**
-- 📂 Organize documents by project, topic, or department
-- ⚡ 10-100x faster searches when filtering by folder
-- 🎯 More relevant results from specific document sets
-- 📊 Track document counts per folder
+- Organize documents by project, topic, or department
+- 10-100x faster searches when filtering by folder
+- More relevant results from specific document sets
+- Track document counts per folder
 
 See [FOLDER_FEATURE_GUIDE.md](FOLDER_FEATURE_GUIDE.md) for detailed usage and best practices.
 
@@ -265,11 +222,11 @@ See [FOLDER_FEATURE_GUIDE.md](FOLDER_FEATURE_GUIDE.md) for detailed usage and be
 RAGI includes intelligent OCR support for extracting text from scanned PDFs and images using PyMuPDF + Tesseract:
 
 **Key Features:**
-- ✅ **Automatic Detection** - Only runs OCR when needed (pages with minimal text)
-- ✅ **Best Performance** - PyMuPDF achieves F1 score of 0.973 (best-in-class)
-- ✅ **Fast Processing** - ~1000x faster for text-based PDFs (smart detection)
-- ✅ **Layout Preservation** - Maintains document structure for better LLM understanding
-- ✅ **Multi-language** - Supports 100+ languages via Tesseract
+- **Automatic Detection** - Only runs OCR when needed (pages with minimal text)
+- **Best Performance** - PyMuPDF achieves F1 score of 0.973 (best-in-class)
+- **Fast Processing** - ~1000x faster for text-based PDFs (smart detection)
+- **Layout Preservation** - Maintains document structure for better LLM understanding
+- **Multi-language** - Supports 100+ languages via Tesseract
 
 **Supported Documents:**
 - Scanned PDFs (fully image-based)
@@ -304,7 +261,7 @@ brew install tesseract-lang  # macOS
 - Scanned PDFs: 2-5 seconds per page (OCR processing)
 - Memory: ~100-200MB per page during OCR
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────┐
@@ -352,7 +309,7 @@ brew install tesseract-lang  # macOS
 - **Response Generator** - LLM-powered answer generation
 - **Session Manager** - Multi-session conversation memory
 
-## ⚙️ Configuration
+## Configuration
 
 RAGI can be configured via environment variables or `.env` file:
 
@@ -388,124 +345,3 @@ RAGI_MAX_MEMORY=4G
 ```
 
 See `.env.example` for all available options.
-
-## 📊 Performance
-
-Typical performance metrics (on M2 MacBook Pro):
-- **Startup Time:** 5-8 seconds
-- **Query Response:** 2-5 seconds
-- **Indexing Speed:** ~1 second per document
-- **Memory Usage:** 2-4GB (with models loaded)
-
-**Optimization Tips:**
-- Use GPU acceleration (CUDA/MPS)
-- Reduce `RETRIEVER_K` for faster retrieval
-- Use smaller LLM model (e.g., `qwen2.5:1.5b`)
-- Disable reranking for speed
-
-## 🧪 Development
-
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Code Formatting
-```bash
-black .
-ruff check .
-```
-
-### Type Checking
-```bash
-mypy .
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-**Quick contribution steps:**
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Add tests if applicable
-5. Run code formatters and tests
-6. Commit your changes (`git commit -m 'Add amazing feature'`)
-7. Push to the branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-Built with:
-- [LangChain](https://github.com/langchain-ai/langchain) - LLM application framework
-- [ChromaDB](https://github.com/chroma-core/chroma) - Vector database
-- [Ollama](https://ollama.com) - Local LLM runtime
-- [HuggingFace](https://huggingface.co) - Embedding models
-- [PyMuPDF](https://pymupdf.readthedocs.io/) - Best-in-class PDF processing
-- [Tesseract](https://github.com/tesseract-ocr/tesseract) - OCR engine
-- [spaCy](https://spacy.io) - NLP processing
-
-## 📚 Documentation
-
-- [CLAUDE.md](CLAUDE.md) - Comprehensive system documentation
-- [FOLDER_FEATURE_GUIDE.md](FOLDER_FEATURE_GUIDE.md) - Folder organization guide
-- [FEATURES_REMOVED.md](FEATURES_REMOVED.md) - Simplification history
-- [API Documentation](docs/api.md) - REST API reference *(coming soon)*
-
-## 🐛 Known Issues & Limitations
-
-- **English Only:** System optimized for English queries
-- **Local Only:** Requires Ollama running locally
-- **Single User:** Not designed for concurrent multi-user access
-- **No Authentication:** API has no built-in authentication
-
-## 🗺️ Roadmap
-
-### Recently Completed ✅
-- [x] OCR support for scanned PDFs (Oct 2025)
-- [x] PyMuPDF integration with intelligent OCR detection
-- [x] Multi-language OCR support
-- [x] Folder-based document organization (Oct 2025)
-- [x] Metadata pre-filtering for faster searches
-- [x] Folder statistics and filtering commands
-
-### High Priority
-- [ ] Web UI (Gradio/Streamlit)
-- [ ] Source citation display
-- [ ] Document upload via UI
-- [ ] Export conversation history
-
-### Medium Priority
-- [ ] OpenAI API support
-- [ ] Multiple LLM provider options
-- [ ] Docker deployment
-- [ ] Feedback loop (👍/👎 ratings)
-- [ ] Multi-folder filtering
-- [ ] Folder-aware result ranking
-
-### Low Priority
-- [ ] Multiple vector store options
-- [ ] Voice input/output
-- [ ] Mobile-responsive UI
-- [ ] Analytics dashboard
-
-## 📧 Support
-
-- **Issues:** [GitHub Issues](https://github.com/yourusername/RAGI/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/RAGI/discussions)
-- **Email:** support@example.com
-
----
-
-<div align="center">
-
-**Made with ❤️ by the RAGI Team**
-
-Star ⭐ this repository if you find it helpful!
-
-</div>
